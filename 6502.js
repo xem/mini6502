@@ -682,7 +682,7 @@ O = [...Array(255)].map((t,o) =>
       // cycles:      6
       // Cycles addr: 0
       // Cycles opc:  0 (***)
-      + "PC=pop()+256*pop(),c+=2;"
+      + "PC=pop()+256*pop(c+=2);"
       
       // "U": BRK (force break)
       // Interrupt, push PC+2 (PC+1 is a padding byte), push P with B flag set to 1, set I to 1
@@ -693,7 +693,7 @@ O = [...Array(255)].map((t,o) =>
       // Cycles addr: 0
       // Cycles opc:  5
       //+ "push(PC>>8),push(255&PC),push(P|16),I=1,PC=r(65534)+256*r(65535)-1;"
-      + "op(3,P|16);"  // TODO: test this version
+      + "op(3,P|16);"
       
       // "V": BCC (branch on carry clear)
       // PC = address if C is 0
@@ -754,7 +754,6 @@ O = [...Array(255)].map((t,o) =>
     // Fetch the right instruction for the current opcode (ignore every illegal opcode where o % 4 == 3):
     [
       `UE#UE#GEBUE#=E#UE#1E#UE#C6%)6%I6$)6%<6%D6%D6%C6%J@'J@'F@&:@'>@'J@'4@'J@'T90T90H9*:90W90T90290T90QMNQMN-NSQMNVMNQMNRMKQMN/5?/5?L5P/5?;5?/5?Z5O/5?"7A"7A.7("7AY7A"7A37A"7A!8+!8+,8[!8+X8+!8+ 8+!8+`[o - (o >> 2)].charCodeAt() - 32
-      // TODO: try to find a better string
     ]
   )
 );
