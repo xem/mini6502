@@ -5,13 +5,13 @@ An attempt to make the smallest standalone 6502 CPU simulator in JavaScript (< 1
 
 Developed for my mini NES emulator: https://github.com/xem/jsnes-lite
 
-A writeup is availavble on: https://xem.github.io/articles/nes.html
+A writeup is available on: https://xem.github.io/articles/nes.html
 
 Commented source code: https://github.com/xem/mini6502/6502.js
 
 Minified: https://github.com/xem/mini6502/6502.min.js
 
-Zipped: https://github.com/xem/mini6502/6502.zip
+Zipped: https://github.com/xem/mini6502/6502.min.zip
 
 Demo: https://xem.github.io/mini6502/demo
 
@@ -21,7 +21,7 @@ Demo: https://xem.github.io/mini6502/demo
 Features:
 
 - Initialization of memory (m), registers (A, X, Y, S, PC, P), flags (C, Z, I, D, B, V, N) and cycle counter (c) as global vars
-- Memory helpers (r(addr), w(addr,value), push(value), pull())
+- Memory helpers (`r(addr)`, `w(addr,value)`, `push(value)`, `pull()`)
 - Emulation of the 151 official 6502 opcodes and 3 interrupts
 - Emulation of the hardware bugs and quirks (JMP, cross-page reads...)
 - Cycle-accurate
@@ -42,10 +42,10 @@ NES features not included:
 How to use:
 
 - Include 6502.js in your project
-- Put the contents of a ROM in the memory M (an array of integers between 0 and 127) 
-- Set PC at the address where the ROM starts (usually encoded in the reset vector: m[0xfffd]<<8+m[Oxfffc])
-- Call op() repeatedly to simulate opcodes one by one
-- Call op(1) for a NMI interrupt, op(2) for a Reset and op(3) for an IRQ
+- Put the contents of a ROM in the memory m (an array of integers between 0 and 127) 
+- Reset the CPU with `op(2)` or set PC at the address where the ROM starts
+- Call `op()` repeatedly to simulate opcodes one by one
+- Call `op(1)` for a NMI interrupt, `op(2)` for a Reset and `op(3)` for an IRQ
 
 <br>
 <br>
