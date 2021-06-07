@@ -21,7 +21,7 @@ Demo: https://xem.github.io/mini6502/demo
 Features:
 
 - Initialization of memory (m), registers (A, X, Y, S, PC, P), flags (C, Z, I, D, B, V, N) and cycle counter (c) as global vars
-- Memory helpers (`r(addr)`, `w(addr,value)`, `push(value)`, `pull()`)
+- Memory helpers (`r(addr)`, `w(addr,value)`, `push(value)`, `pop()`)
 - Emulation of the 151 official 6502 opcodes and 3 interrupts
 - Emulation of the hardware bugs and quirks (JMP, cross-page reads...)
 - Cycle-accurate

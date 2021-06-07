@@ -7,23 +7,25 @@
 // 16kb memory
 // Each chunk of 256 bytes in memory is called a page
 // The first chunk ($00-$FF) is called Zero page and is easier/faster to access
-m = [],
+m = [
 
-// Registers
-A =           // accumulator
-X =           // X
-Y =           // Y
-// S =        // stack pointer (also called SP)
-// PC =       // program counter (address of next instruction)
-// P =        // status register (flags on bytes 0-7: C=0, Z=0, I=1, D=0, B=0, 1, V=0, N=0)
+  // Registers
+  A =           // accumulator
+  X =           // X
+  Y =           // Y
+  // S =        // stack pointer (also called SP)
+  // PC =       // program counter (address of next instruction)
+  // P =        // status register (flags on bytes 0-7: C=0, Z=0, I=1, D=0, B=0, 1, V=0, N=0)
 
-// Other globals
+  // Other globals
 
-// t,         // temp var
-// o,         // opcode value
-// a,         // operand address
-// p,         // operand value
-c = 0,        // cycle counter
+  // t,         // temp var
+  // o,         // opcode value
+  // a,         // operand address
+  // p,         // operand value
+  c = 0         // cycle counter
+
+],
 
 
 // Helpers
@@ -69,7 +71,7 @@ push = v => (
 
 // Pull from stack
 // Increment S, wrap it between $00 and $FF, read at address $100 + S
-pull = v => r(256 + (S = (255 & (S+1)))),
+pop = v => r(256 + (S = (255 & (S+1)))),
 
 // Instructions
 // ============
@@ -564,16 +566,16 @@ O = [...Array(255)].map((t,o) =>
       // Cycles opc:  1
       + "push(P|16);"
       
-      // "H": PLA (pull accumulator)
+      // "H": PLA (pop accumulator)
       // Pull A. Flags: N, Z.
       // Addressing:  imp
       // Opcode:      68
       // Cycles:      4 (*** 1 extra cycle according to nestest)
       // Cycles addr: 0
       // Cycles opc:  1
-      + "A=F(pull()),c++;"
+      + "A=F(pop()),c++;"
       
-      // "I": PLP (pull processor status)
+      // "I": PLP (pop processor status)
       // Pull P and set all flags
       // (According to nestest, the B flag stays at 0) 
       // Addressing:  imp
@@ -581,16 +583,16 @@ O = [...Array(255)].map((t,o) =>
       // Cycles:      4 (*** 1 extra cycle according to nestest)
       // Cycles addr: 0
       // Cycles opc:  1
-      + "f(pull()&239),c++;"
+      + "f(pop()&239),c++;"
       
       // "J": RTI (return from interrupt)
-      // Pull P, set all flags, pull PC
+      // Pull P, set all flags, pop PC
       // Addressing:  imp
       // Opcode:      40
       // cycles:      6
       // Cycles addr: 0
       // Cycles opc:  4 (***)
-      + "f(pull()),PC=pull()+256*pull()-1,c++;"
+      + "f(pop()),PC=pop()+256*pop()-1,c++;"
       
       // "K": TXS (transfer X to stack pointer)
       // Stack pointer = X
@@ -680,7 +682,7 @@ O = [...Array(255)].map((t,o) =>
       // cycles:      6
       // Cycles addr: 0
       // Cycles opc:  0 (***)
-      + "PC=pull()+256*pull(),c+=2;"
+      + "PC=pop()+256*pop(),c+=2;"
       
       // "U": BRK (force break)
       // Interrupt, push PC+2 (PC+1 is a padding byte), push P with B flag set to 1, set I to 1
@@ -751,7 +753,7 @@ O = [...Array(255)].map((t,o) =>
     
     // Fetch the right instruction for the current opcode (ignore every illegal opcode where o % 4 == 3):
     [
-      117 - "@Pr@PrNPS@PrXPr@PrdPr@PrR_pl_pL_ql_pY_pQ_pQ_pR_pKUnKUnOUo[UnWUnKUnaUnKUnA\\eA\\eM\\k[\\e>\\eA\\ec\\eA\\eDHGDHGhGBDHG?HGDHGCHJDHGf`Vf`VI`Ef`VZ`Vf`V;`Ff`Vs^Ts^Tg^ms^T<^Ts^Tb^Ts^Tt]jt]ji]:t]j=]jt]ju]jt]j"[o - (o >> 2)].charCodeAt()
+      `UE#UE#GEBUE#=E#UE#1E#UE#C6%)6%I6$)6%<6%D6%D6%C6%J@'J@'F@&:@'>@'J@'4@'J@'T90T90H9*:90W90T90290T90QMNQMN-NSQMNVMNQMNRMKQMN/5?/5?L5P/5?;5?/5?Z5O/5?"7A"7A.7("7AY7A"7A37A"7A!8+!8+,8[!8+X8+!8+ 8+!8+`[o - (o >> 2)].charCodeAt() - 32
       // TODO: try to find a better string
     ]
   )
