@@ -4,9 +4,10 @@
 <br>- loads 6502.min.js
 <br>- includes the <a href="https://github.com/christopherpow/nes-test-roms/blob/master/other/nestest.nes">nestest ROM</a>
 <br>- sets PC to $C000 (where the automatic tests start according to the <a href="https://github.com/christopherpow/nes-test-roms/blob/master/other/nestest.txt">doc</a>)
-<br>- calls O() 5002 times, logs the registers/flags/cycles and compare them to the official <a href="https://github.com/christopherpow/nes-test-roms/blob/master/other/nestest.log">nestest logs</a>
+<br>- calls <span style="font-family:courier">op()</span> 5002 times, logs the registers/flags/cycles and compare them to the official <a href="https://github.com/christopherpow/nes-test-roms/blob/master/other/nestest.log">nestest logs</a>
 <br>- If everything is identical, the CPU is accurate!
 <p><textarea cols=60 rows=20 id=logs>logs...</textarea>
+<p>TODO: test the interrupts
 
 <script src="../6502.js"></script>
 <script>
