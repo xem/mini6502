@@ -56,7 +56,7 @@ How to compress after golfing:
 
 - zip: add 6502.min.js in a zip file, run `./ect-0.8.3.exe -9 -zip .\6502.min.zip`
 - gzip: run `zopfli --gzip -i1000000 6502.min.js`
-- reshuffle opcode list: `<list.txt npx --node-args --experimental-modules dict-tempering --type=newline >out.txt`
+- reshuffle opcode list: `<in.txt npx --node-args --experimental-modules dict-tempering --type=newline >out.txt`
 
 <br>
 <br>
