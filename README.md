@@ -1,7 +1,7 @@
 mini6502
 ========
 
-An attempt to make the smallest standalone 6502 CPU simulator in JavaScript (< 1kb zipped)
+An attempt to make the smallest standalone NES CPU (Ricoh 6502) simulator in JavaScript (< 1kb zipped)
 
 Developed for my mini NES emulator: https://github.com/xem/jsnes-lite
 
@@ -32,11 +32,12 @@ Features:
 <br>
 <br>
 
-NES features not included:
+Features not included:
 
-- Memory mirrorings (same data available at different addresses)
-- I/O registers (graphics, sound, joypads...)
-- Mappers (ROM bank switching, save slot, ...)
+- NES specific memory mirrorings (showing the same data available at different addresses)
+- NES specific I/O registers (to handle graphics, sound, joypads...)
+- NES Mappers (ROM bank switching, save slot, ...)
+- Decimal mode (which is present on the original MOS 6502 CPU but not in Ricoh 6502 used by the NES)
 
 <br>
 <br>
