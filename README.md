@@ -7,13 +7,15 @@ Developed for my mini NES emulator: https://github.com/xem/jsnes-lite
 
 A writeup is available on: https://xem.github.io/articles/nes.html
 
-Commented source code: https://github.com/xem/mini6502/6502.js
+Commented source code: https://github.com/xem/mini6502/blob/gh-pages/6502.js
 
-Minified: https://github.com/xem/mini6502/6502.min.js
+Minified: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js
 
-Zipped: https://github.com/xem/mini6502/6502.min.zip
+Zipped: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js.zip
 
-Demo: https://xem.github.io/mini6502/demo
+Gzipped: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js.gz
+
+Demo/test: https://xem.github.io/mini6502/demo
 
 <br>
 <br>
@@ -50,11 +52,11 @@ How to use:
 <br>
 <br>
 
-How to compress:
+How to compress after golfing:
 
 - zip: add 6502.min.js in a zip file, run `./ect-0.8.3.exe -9 -zip .\6502.min.zip`
 - gzip: run `zopfli --gzip -i1000000 6502.min.js`
-- shuffle a list of strings for better compression: `<list.txt npx --node-args --experimental-modules dict-tempering --type=newline >out.txt`
+- reshuffle opcode list: `<list.txt npx --node-args --experimental-modules dict-tempering --type=newline >out.txt`
 
 <br>
 <br>
