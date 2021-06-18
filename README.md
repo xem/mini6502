@@ -34,9 +34,9 @@ Features:
 
 Features not included:
 
-- NES specific memory mirrorings (showing the same data available at different addresses)
+- NES specific memory mirrorings (showing the same data at different addresses)
 - NES specific I/O registers (to handle graphics, sound, joypads...)
-- NES Mappers (ROM bank switching, save slot, ...)
+- NES Mappers (cartridge models, allowing ROM bank switching, save slots, ...)
 - Decimal mode (which is present on the original MOS 6502 CPU but not in Ricoh 6502 used by the NES)
 
 <br>
@@ -44,9 +44,9 @@ Features not included:
 
 How to use:
 
-- Include 6502.js in your project
-- Put the contents of a ROM in the memory m (an array of integers between 0 and 127) 
-- Reset the CPU with `op(2)` or set PC at the address where the ROM starts
+- Include 6502.js or 6502.min.js in your project
+- Put the contents of a ROM in the memory m (an array of integers between 0 and 255) 
+- Reset the CPU with `op(2)` or set PC at the address where the program starts
 - Call `op()` repeatedly to simulate opcodes one by one
 - Call `op(1)` for a NMI interrupt, `op(2)` for a Reset and `op(3)` for an IRQ
 
