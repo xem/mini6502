@@ -128,7 +128,6 @@ O = [...Array(255)].map((t,o) =>
       // Cycles addr.: 2-3
       // Cycles opc. : 0-1
       // * Cross-page read (if address and address + Y are on different pages) costs 1 extra cycle
-      // TODO golf?
       + "a=r(p)+256*r(p+1&255)+Y,c+=a-Y>>8<a>>8||o>>4==9,PC++;"
 
       // "4": Zero page X
@@ -846,7 +845,7 @@ op = (v, z) => (
     // then jump to address stored at $FFFE-$FFFF
     // This costs 7 cycles
 
-    // (v > 1 || r(0x2000) >> 7) && ( // NES-specific
+    // (v > 1 || r(0x2000) >> 7) && ( // NES-specific test, commented here
 
       (
         (
