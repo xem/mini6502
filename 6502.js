@@ -224,7 +224,7 @@ O = [...Array(255)].map((t,o) =>
     
       // " ": TXS (transfer X to stack pointer)
       // Stack pointer = X
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       9A
       // Cycles total: 2
       // Cycles addr.: 0
@@ -264,7 +264,7 @@ O = [...Array(255)].map((t,o) =>
       // "$": ROL A (rotate left accumulator)
       // Rotate left A. Same as left shift but C flag is put into bit 0. Flags: N, Z, C
       // The shifted-out bit 7 is saved in C
-      // Addressing:  A
+      // Addressing:   A
       // Opcode:       2A
       // Cycles total: 2
       // Cycles addr.: 0
@@ -284,7 +284,7 @@ O = [...Array(255)].map((t,o) =>
       // "&": LSR A (shift right accumulator)
       // A is shifted right. Flags: N, Z, C
       // The shifted-out bit 0 is saved in C
-      // Addressing:  A
+      // Addressing:   A
       // Opcode:       4A
       // Cycles total: 2
       // Cycles addr.: 0
@@ -303,7 +303,7 @@ O = [...Array(255)].map((t,o) =>
 
       // "(": DEX (decrement X)
       // X is decremented. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       CA
       // Cycles total: 2
       // Cycles addr.: 0
@@ -322,7 +322,7 @@ O = [...Array(255)].map((t,o) =>
       // "*": ROR A (rotate right accumulator)
       // Rotate right A or a byte in memory. Same as left shift but C flag is put into bit 7. Flags: N, Z, C
       // The shifted-out bit 0 is saved in C
-      // Addressing:  A
+      // Addressing:   A
       // Opcode:       6A
       // Cycles total: 2
       // Cycles addr.: 0
@@ -340,7 +340,7 @@ O = [...Array(255)].map((t,o) =>
 
       // ",": INX (increment X)
       // X is incremented. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       E8
       // Cycles total: 2
       // Cycles addr.: 0
@@ -349,7 +349,7 @@ O = [...Array(255)].map((t,o) =>
 
       // "-": DEY (decrement Y)
       // Y is decremented. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       88
       // Cycles total: 2
       // Cycles addr.: 0
@@ -358,7 +358,7 @@ O = [...Array(255)].map((t,o) =>
 
       // ".": INY (increment Y)
       // Y is incremented. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       C8
       // Cycles total: 2
       // Cycles addr.: 0
@@ -386,7 +386,7 @@ O = [...Array(255)].map((t,o) =>
 
       // "1": CLC (clear carry flag)
       // C is set to 0
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       18
       // Cycles total: 2
       // Cycles addr.: 0
@@ -395,7 +395,7 @@ O = [...Array(255)].map((t,o) =>
 
       // "2": SEI  (set interrupt disable flag)
       // I is set to 1
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       78
       // Cycles total: 2
       // Cycles addr.: 0
@@ -404,7 +404,7 @@ O = [...Array(255)].map((t,o) =>
 
       // "3": CLD (clear decimal flag)
       // D is set to 0
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       D8
       // Cycles total: 2
       // Cycles addr.: 0
@@ -413,7 +413,7 @@ O = [...Array(255)].map((t,o) =>
 
       // "4": CLI (clear interrupt disable flag)
       // I is set to 0
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       58
       // Cycles total: 2
       // Cycles addr.: 0
@@ -472,7 +472,7 @@ O = [...Array(255)].map((t,o) =>
       
       // ":": BCS (branch on carry set)
       // PC = address if C is 1
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       B0
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -481,7 +481,7 @@ O = [...Array(255)].map((t,o) =>
       
       // ";": BMI (branch on minus)
       // PC = address if N is 1
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       30
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -490,7 +490,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "<": BEQ (branch if equal)
       // PC = address if Z is 0
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       F0
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -499,7 +499,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "=": BPL (branch on plus)
       // PC = address if N is 0
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       10
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -508,7 +508,7 @@ O = [...Array(255)].map((t,o) =>
       
       // ">": BVS (branch on overflow set)
       // PC = address if V is 1
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       70
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -517,7 +517,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "?": BNE (branch if not equal)
       // PC = address if Z is 1
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       D0
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -526,7 +526,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "@": BVC (branch on overflow clear)
       // PC = address if V is 0
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       50
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -563,7 +563,7 @@ O = [...Array(255)].map((t,o) =>
       // "D": ASL A (shift left accumulator)
       // A is left shifted. Flags: N, Z, C
       // The shifted-out bit 7 is saved in C
-      // Addressing:  A
+      // Addressing:   A
       // Opcode:       0A
       // Cycles total: 2
       // Cycles addr.: 0
@@ -572,7 +572,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "E": JSR (jump to subroutine)
       // Push PC + 2, PC = absolute address
-      // Addressing:  abs
+      // Addressing:   abs
       // Opcode:       20
       // Cycles total: 6
       // Cycles addr.: 1
@@ -581,7 +581,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "F": SEC (set carry flag)
       // C is set to 1
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       38
       // Cycles total: 2
       // Cycles addr.: 0
@@ -590,7 +590,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "G": SED (set decomal flag)
       // D is set to 1
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       F8
       // Cycles total: 2
       // Cycles addr.: 0
@@ -599,7 +599,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "H": CLV (clear overflow flag)
       // V is set to 0
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       B8
       // Cycles total: 2
       // Cycles addr.: 0
@@ -617,7 +617,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "J": PHA (push accumulator)
       // Push A
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       48
       // Cycles total: 3
       // Cycles addr.: 0
@@ -626,7 +626,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "K": PHP (push processor status)
       // Push P with B flag set to 1
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       08
       // Cycles total: 3
       // Cycles addr.: 0
@@ -636,7 +636,7 @@ O = [...Array(255)].map((t,o) =>
       // A=F(g()),c++
       // "L": PLA (pull accumulator)
       // Pull A. Flags: N, Z.
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       68
       // Cycles total: 4 (*** 1 extra cycle according to nestest)
       // Cycles addr.: 0
@@ -646,7 +646,7 @@ O = [...Array(255)].map((t,o) =>
       // "M": PLP (pull processor status)
       // Pull P and set all flags
       // (According to nestest, the B flag stays at 0) 
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       28
       // Cycles total: 4 (*** 1 extra cycle according to nestest)
       // Cycles addr.: 0
@@ -655,7 +655,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "N": RTI (return from interrupt)
       // Pull P, set all flags, pull PC
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       40
       // Cycles total: 6
       // Cycles addr.: 0
@@ -664,7 +664,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "O": BCC (branch on carry clear)
       // PC = address if C is 0
-      // Addressing:  rel 
+      // Addressing:   rel 
       // Opcode:       90
       // Cycles total: 2**
       // Cycles addr.: 0
@@ -675,7 +675,7 @@ O = [...Array(255)].map((t,o) =>
       // Interrupt, push PC+2 (PC+1 is a padding byte), push P with B flag set to 1, set I to 1
       // This is equivalent to an IRQ interrupt with another value of P pushed on the stack:
       // "h(PC>>8),h(255&PC),h(P|16),I=1,PC=r(65534)+256*r(65535)-1;"
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       00
       // Cycles total: 7
       // Cycles addr.: 0
@@ -685,7 +685,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "Q": TAY (transfer accumulator to Y)
       // Y = A. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       A8
       // Cycles total: 2
       // Cycles addr.: 0
@@ -712,7 +712,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "T": TSX (transfer stack pointer to X)
       // X = S. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       BA
       // Cycles total: 2
       // Cycles addr.: 0
@@ -721,7 +721,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "U": TAX (transfer accumulator to X)
       // X = A. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       AA
       // Cycles total: 2
       // Cycles addr.: 0
@@ -739,7 +739,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "W": TYA (transfer Y to accumulator)
       // A = Y. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       98
       // Cycles total: 2
       // Cycles addr.: 0
@@ -748,7 +748,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "X": TXA (transfer X to accumulator)
       // A = X. Flags: N, Z
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       8A
       // Cycles total: 2
       // Cycles addr.: 0
@@ -757,7 +757,7 @@ O = [...Array(255)].map((t,o) =>
       
       // "Y": RTS (return from subroutine)
       // Pull and increment PC
-      // Addressing:  imp
+      // Addressing:   imp
       // Opcode:       60
       // Cycles total: 6
       // Cycles addr.: 0
@@ -776,7 +776,7 @@ O = [...Array(255)].map((t,o) =>
       // "[" JMP indirect
       // Jump to an address stored anywhere in memory. The address of this address is stored after the opcode
       // Hardware bug: if the indirect address falls on a page boundary ($xxFF), it will wrap and fetch the low byte in the same page ($xx00)
-      // Addressings:  ind
+      // Addressing:   ind
       // Opcodes:      6C
       // Cycles total: 5
       // Cycles addr.: 3
@@ -785,9 +785,9 @@ O = [...Array(255)].map((t,o) =>
 
       // "z": NOP (no operation)
       // (When a "z" is read, the generated JavaScript code will just contain "undefined;")
-      // Addressing: imp
-      // Opcode:     EA
-      // Cycles:     2
+      // Addressing:   imp
+      // Opcode:       EA
+      // Cycles total: 2
       // Cycles addr.: 0
       // Cycles opc. : 0
       + ""
