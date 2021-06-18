@@ -63,7 +63,7 @@ f = v => (
 f(P = 0x24),
 
 // Push on Stack
-// write at address $100 + S, decrement S, wrap it between $00 and $FF
+// Write at address $100 + S, decrement S, wrap it between $00 and $FF
 h = v => (
   w(256 + S--, v),
   S &= 255
@@ -192,11 +192,11 @@ O = [...Array(255)].map((t,o) =>
     // Make an array from this string
     ).split(";")
 
-    // Fetch the right addressing mode for the current opcode (ignore every illegal opcode where o % 4 == 3):
-    // (The string below is optomized for compression: all the illegal opcodes are assigned characters that allow extra repetition)
+    // Fetch the right addressing mode for the current opcode (ignore illegal opcode where o % 4 == 3):
+    // (The string below is optomized for compression: the illegal opcodes are assigned characters that create extra repetitions)
     [
       (
-        "020666Z0Z77713Z444Z8Z999"
+         "020666Z0Z77713Z444Z8Z999"
         +"720666Z0Z77713Z444Z8Z999"
         +"Z20666Z0Z77713Z444Z8Z999"
         +"Z20666Z0Z77713Z444Z8Z999"
@@ -219,6 +219,7 @@ O = [...Array(255)].map((t,o) =>
     // ** : Same-page branch (PC+2>>8 == a>>8) costs 1 extra cycle. Cross-page branch costs 2 extra cycles
     // ***: Instructions that read, modify and write a value in memory (+ JSR/RTI/RTS/PLA/PLP) cost 1 to 2 extra cycles
     // The order and implementations below are also optimized for a better gzip compression
+    // Also, some instructions were splitted in two if they target either the memory or the Accumulator register (ROR, ROL, LSR, ASL)
 
     + (
     
