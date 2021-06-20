@@ -7,10 +7,24 @@
 <br>- calls <span style="font-family:courier">op()</span> 5002 times, logs the registers/flags/cycles and compare them to the official <a href="https://github.com/christopherpow/nes-test-roms/blob/master/other/nestest.log">nestest logs</a>
 <br>- If everything is identical, the CPU is accurate!
 <p><textarea cols=60 rows=20 id=logs>logs...</textarea>
-<p>TODO: test the interrupts
+<p>Interrupts:
+<p>
+<button onclick="log('Before');op(1);log('After ');">NMI</button> 
+<button onclick="log('Before');op(2);log('After ');">Reset</button> 
+<button onclick="log('Before');op(3);log('After ');">IRQ</button>
 
-<script src="../6502.min.js"></script>
+<p>- NMI pushes PC high + PC low + P with B=0, sets PC=$C5AF, sets I=1 and uses 7 cycles
+<br>- Reset pushes PC high + PC low + P with B=0, sets PC=$C004, sets I=1 and uses 7 cycles
+<br>- IRQ pushes PC high + PC low + P with B=0, sets PC=$C5F4, sets I=1 and uses 7 cycles
+<p><textarea cols=60 rows=6 id=logs2></textarea>
+
+<script src="../6502.js"></script>
 <script>
+
+log = (txt) => {
+  logs2.innerHTML += txt + ": PC:" + PC.toString(16).toUpperCase().padStart(4,0) + " A:" + A.toString(16).toUpperCase().padStart(2,0) + " X:" + X.toString(16).toUpperCase().padStart(2,0) + " Y:" + Y.toString(16).toUpperCase().padStart(2,0) + " P:" + P.toString(2).toUpperCase().padStart(2,0) + " SP:" + S.toString(16).toUpperCase().padStart(2,0) + " CYC:" + ((c)%341).toString().padStart(3," ") + "\n";
+  logs2.style.background = "#efe"
+}
 
 // load ROM
 file = new XMLHttpRequest;
