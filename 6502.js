@@ -838,7 +838,7 @@ op = (v, z) => (
     // 2: Reset:
     // Push PC and P with B flag set to 0, then set I to 1,
     // then jump to address stored at $FFFC-$FFFD
-    // This costs 8 cycles
+    // This resets c and costs 8 cycles
     // On NES, this also resets the PPU
 
     // 3: IRQ/BRK:
@@ -852,12 +852,11 @@ op = (v, z) => (
         (
           (v - 2) 
           ? (h(PC >> 8), h(255 & PC), h(z ? (P|16) : (239 & P))) // NMI/IRQ/BRK
-          : (S = (S-3) & 255) // Reset
+          : (S = (S-3) & 255, c = 6) // Reset
         ),
 
         I = 1,
-        PC = r(65528 + v * 2) + 256 * r(65528 + v * 2 + 1)//,
-        //console.log(PC)
+        PC = r(65528 + v * 2) + 256 * r(65528 + v * 2 + 1)
       )
 
     // )

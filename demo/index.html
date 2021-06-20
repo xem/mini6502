@@ -14,7 +14,7 @@
 <button onclick="log('Before');op(3);log('After ');">IRQ</button>
 
 <p>- NMI pushes PC high + PC low + P with B=0, sets PC=$C5AF, sets I=1 and uses 7 cycles
-<br>- Reset pushes PC high + PC low + P with B=0, sets PC=$C004, sets I=1 and uses 7 cycles
+<br>- Reset pushes PC high + PC low + P with B=0, sets PC=$C004, sets I=1, resets c and uses 7 cycles
 <br>- IRQ pushes PC high + PC low + P with B=0, sets PC=$C5F4, sets I=1 and uses 7 cycles
 <p><textarea cols=60 rows=6 id=logs2></textarea>
 

@@ -11,9 +11,9 @@ Commented source code: https://github.com/xem/mini6502/blob/gh-pages/6502.js
 
 Minified: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js
 
-Zipped: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js.zip (1012b)
+Zipped: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js.zip (1015b)
 
-Gzipped: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js.gz (924b)
+Gzipped: https://github.com/xem/mini6502/blob/gh-pages/6502.min.js.gz (928b)
 
 Demo/test: https://xem.github.io/mini6502/demo
 
